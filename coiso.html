@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <style>
+    #contador {
+      font-size: 18px;
+      font-family: Arial;
+      color: #333;
+    }
+    .size{
+        width: 500px;
+        height: 650px;
+        border: 3px solid black;
+        border-radius: 12px;
+    }
+    .imagem{
+      background-image: url(imagens/fundo.jpg); 
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      background-position: center;
+    }
+  </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width= initial-scale= 1.0">
+  <title>Eu te Amo!</title>
+  
+</head>
+<body class="imagem">
+    <center>
+  <h1>Estamos juntos há</h1>
+  <div id="contador"></div>
+  <h2></h2>
+  <tr><td>
+    <img src="imagens/foto.png.jpg" class="size">
+  </td></tr>
+  <script>
+    // Define a data de início
+    const dataInicio = new Date("2025-04-11T00:00:00");
+
+    function atualizarContador() {
+      const agora = new Date();
+      const diferenca = agora - dataInicio;
+
+      // Calcula dias, horas, minutos e segundos
+      const segundosTotais = Math.floor(diferenca / 1000);
+      const dias = Math.floor(segundosTotais / (3600 * 24));
+      const horas = Math.floor((segundosTotais % (3600 * 24)) / 3600);
+      const minutos = Math.floor((segundosTotais % 3600) / 60);
+      const segundos = segundosTotais % 60;
+
+      // Exibe no elemento
+      document.getElementById("contador").textContent =
+        `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+    }
+
+    // Atualiza a cada segundo
+    setInterval(atualizarContador, 1000);
+    atualizarContador(); // Atualiza imediatamente
+  </script>
+</body>
+</html>
